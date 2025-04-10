@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,7 +17,8 @@ class HomeController extends Controller
     public function menu()
     {
         $products = Product::all();
-        return view('menu', compact('products'));
+        $categories = Category::all();
+        return view('menu', compact('products', 'categories'));
     }
 
     public function cart()
